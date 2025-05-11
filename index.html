@@ -81,6 +81,9 @@
     </main>
 
     <script>
+        // 提前加载gif，防止后面卡顿
+        const loveImg = new Image();
+        loveImg.src = './love.gif';
         const imageList = [
             './1.jpg',
             './2.jpg',
