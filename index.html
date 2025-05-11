@@ -30,35 +30,42 @@
             width: 100vw;
         }
 
+        #image {
+            width: 150px;
+            height: 150px;
+        }
+
         #text {
             color: rgb(92, 62, 64);
             font-weight: 500;
             font-size: 150%;
         }
 
+        #button-row {
+            margin-top: 10px;
+            white-space: nowrap;
+        }
+
         button {
             border: none;
             border-radius: 10px;
-            padding: 10px 20px;
-            font-size: 24px;
             margin: 5px;
             cursor: pointer;
+            font-size: 20px;
         }
 
         #yes {
             background: #6b97c7;
             color: #fff;
             transition-duration: 0.3s;
+            padding: 10px 30px;
         }
 
         #no {
             background: #d88b8b;
             color: #fff;
-        }
-
-        #button-row {
-            margin-top: 16px;
-            white-space: nowrap;
+            padding: 10px 0px;
+            width: 120px;
         }
     </style>
 </head>
@@ -83,8 +90,7 @@
             './6.jpg',
         ]
         const yesList = [
-            '可以哒',
-            '当然可以！'
+            '可以哒'
         ]
         const noList = [
             '才不要',
@@ -92,7 +98,7 @@
             '要不再想想',
             '不许选这个',
             '我会伤心的',
-            '不要嘛呜呜呜'
+            '呜呜呜呜'
         ]
 
         const textElement = document.querySelector('#text')
@@ -121,8 +127,8 @@
             if (index < noList.length)
                 noButtonElement.innerHTML = noList[index]
 
-            yesButtonElement.style.fontSize = `${24 + index * 10}px`
-            yesButtonElement.style.padding = `${10 + index * index * 3}px ${20 + index * index * 10}px`
+            yesButtonElement.style.fontSize = `${20 + index * 10}px`
+            yesButtonElement.style.padding = `${10 + index * index * 3}px ${30 + index * index * 10}px`
         })
     </script>
 </body>
