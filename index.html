@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可以嘛</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(244, 214, 216);
+            display: flex;
+            /* justify-content: center; */
+            /* align-items: center; */
+            overflow: hidden;
+        }
+
+        main {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100vw;
+        }
+
+        #text {
+            color: rgb(92, 62, 64);
+            font-weight: 500;
+            font-size: 150%;
+        }
+
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 24px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #yes {
+            background: #6b97c7;
+            color: #fff;
+            transition-duration: 0.3s;
+        }
+
+        #no {
+            background: #d88b8b;
+            color: #fff;
+        }
+
+        #button-row {
+            margin-top: 16px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <img id="image" />
+        <p id="text">可以成为我的恋人嘛？</p>
+        <div id="button-row">
+            <button id="yes"></button>
+            <button id="no"></button>
+        </div>
+    </main>
+
+    <script>
+        const imageList = [
+            './1.jpg',
+            './2.jpg',
+            './3.jpg',
+            './4.jpg',
+            './5.jpg',
+            './6.jpg',
+        ]
+        const yesList = [
+            '可以哒',
+            '当然可以！'
+        ]
+        const noList = [
+            '才不要',
+            '你认真的嘛',
+            '要不再想想',
+            '不许选这个',
+            '我会伤心的',
+            '不要嘛呜呜呜'
+        ]
+
+        const textElement = document.querySelector('#text')
+        const imageElement = document.querySelector('#image')
+        const yesButtonElement = document.querySelector('#yes')
+        const noButtonElement = document.querySelector('#no')
+
+        imageElement.src = imageList[0]
+        yesButtonElement.innerHTML = yesList[0]
+        noButtonElement.innerHTML = noList[0]
+
+        yesButtonElement.addEventListener('click', () => {
+            imageElement.src = './love.gif'
+            yesButtonElement.style.display = 'none'
+            noButtonElement.style.display = 'none'
+            textElement.innerHTML = '我也喜欢你！~~'
+        })
+
+        let index = 0;
+        noButtonElement.addEventListener('click', () => {
+            index++;
+            if (index < imageList.length)
+                imageElement.src = imageList[index]
+            if (index < yesList.length)
+                yesButtonElement.innerHTML = yesList[index]
+            if (index < noList.length)
+                noButtonElement.innerHTML = noList[index]
+
+            yesButtonElement.style.fontSize = `${24 + index * 10}px`
+            yesButtonElement.style.padding = `${10 + index * index * 3}px ${20 + index * index * 10}px`
+        })
+    </script>
+</body>
+
+</html>
